@@ -2,9 +2,21 @@ import { NUMBER_SETTING } from "./constants";
 
 const DISABLED_COLOR = "lightgray";
 const CLOCK_COLOR = "red";
+const SIZE = {
+  default: 16,
+  small: 12,
+  xSmall: 8,
+};
 
-export const EENumber = ({ number }: { number: number }) => {
+export const EENumber = ({
+  number,
+  variant = "default",
+}: {
+  number: number;
+  variant?: keyof typeof SIZE;
+}) => {
   const ee = NUMBER_SETTING[number];
+  const size = SIZE[variant];
   const top = ee.top ? CLOCK_COLOR : DISABLED_COLOR;
   const topLeft = ee.topLeft ? CLOCK_COLOR : DISABLED_COLOR;
   const topRight = ee.topRight ? CLOCK_COLOR : DISABLED_COLOR;
@@ -17,11 +29,11 @@ export const EENumber = ({ number }: { number: number }) => {
       <div
         className="top-top"
         style={{
-          width: 16,
-          borderLeft: "4px solid transparent",
-          borderRight: "4px solid transparent",
-          borderBottom: `4px solid ${top}`,
-          marginLeft: 4,
+          width: size,
+          borderLeft: `${size / 4}px solid transparent`,
+          borderRight: `${size / 4}px solid transparent`,
+          borderBottom: `${size / 4}px solid ${top}`,
+          marginLeft: size / 4,
         }}
       />
       <div
@@ -33,30 +45,30 @@ export const EENumber = ({ number }: { number: number }) => {
         <div
           className="top-main-left"
           style={{
-            height: 16,
-            borderBottom: "4px solid transparent",
-            borderTop: "4px solid transparent",
-            borderRight: `4px solid ${topLeft}`,
+            height: size,
+            borderBottom: `${size / 4}px solid transparent`,
+            borderTop: `${size / 4}px solid transparent`,
+            borderRight: `${size / 4}px solid ${topLeft}`,
           }}
         />
         <div
           className="top-main-body"
           style={{
-            width: 16,
-            height: 16,
-            borderTop: `4px solid ${top}`,
-            borderLeft: `4px solid ${topLeft}`,
-            borderRight: `4px solid ${topRight}`,
-            borderBottom: `4px solid ${middle}`,
+            width: size,
+            height: size,
+            borderTop: `${size / 4}px solid ${top}`,
+            borderLeft: `${size / 4}px solid ${topLeft}`,
+            borderRight: `${size / 4}px solid ${topRight}`,
+            borderBottom: `${size / 4}px solid ${middle}`,
           }}
         />
         <div
           className="top-main-right"
           style={{
-            height: 16,
-            borderBottom: "4px solid transparent",
-            borderTop: "4px solid transparent",
-            borderLeft: `4px solid ${topRight}`,
+            height: size,
+            borderTop: `${size / 4}px solid transparent`,
+            borderBottom: `${size / 4}px solid transparent`,
+            borderLeft: `${size / 4}px solid ${topRight}`,
           }}
         />
       </div>
@@ -69,41 +81,41 @@ export const EENumber = ({ number }: { number: number }) => {
         <div
           className="bottom-main-left"
           style={{
-            height: 16,
-            borderBottom: "4px solid transparent",
-            borderTop: "4px solid transparent",
-            borderRight: `4px solid ${bottomLeft}`,
+            height: size,
+            borderTop: `${size / 4}px solid transparent`,
+            borderBottom: `${size / 4}px solid transparent`,
+            borderRight: `${size / 4}px solid ${bottomLeft}`,
           }}
         />
         <div
           className="bottom-main-body"
           style={{
-            width: 16,
-            height: 16,
-            borderTop: `4px solid ${middle}`,
-            borderLeft: `4px solid ${bottomLeft}`,
-            borderRight: `4px solid ${bottomRight}`,
-            borderBottom: `4px solid ${bottom}`,
+            width: size,
+            height: size,
+            borderTop: `${size / 4}px solid ${middle}`,
+            borderLeft: `${size / 4}px solid ${bottomLeft}`,
+            borderRight: `${size / 4}px solid ${bottomRight}`,
+            borderBottom: `${size / 4}px solid ${bottom}`,
           }}
         />
         <div
           className="bottom-main-right"
           style={{
-            height: 16,
-            borderBottom: "4px solid transparent",
-            borderTop: "4px solid transparent",
-            borderLeft: `4px solid ${bottomRight}`,
+            height: size,
+            borderTop: `${size / 4}px solid transparent`,
+            borderBottom: `${size / 4}px solid transparent`,
+            borderLeft: `${size / 4}px solid ${bottomRight}`,
           }}
         />
       </div>
       <div
         className="bottom-bottom"
         style={{
-          width: 16,
-          borderLeft: "4px solid transparent",
-          borderRight: "4px solid transparent",
-          borderTop: `4px solid ${bottom}`,
-          marginLeft: 4,
+          width: size,
+          borderLeft: `${size / 4}px solid transparent`,
+          borderRight: `${size / 4}px solid transparent`,
+          borderTop: `${size / 4}px solid ${bottom}`,
+          marginLeft: size / 4,
         }}
       />
     </div>
