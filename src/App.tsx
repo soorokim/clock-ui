@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { EEClock } from "./EEClock";
+import { AnalogClock } from "./AnalogColck";
 
 function App() {
   const [time, setTime] = useState({
@@ -42,6 +43,7 @@ function App() {
   return (
     <>
       <EEClock time={time} />
+      <AnalogClock time={time} />
     </>
   );
 }

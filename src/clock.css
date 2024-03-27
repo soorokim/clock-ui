@@ -1,0 +1,64 @@
+#clock {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+:nth-child(1) {
+  --nth-child: 1;
+}
+:nth-child(2) {
+  --nth-child: 2;
+}
+:nth-child(3) {
+  --nth-child: 3;
+}
+:nth-child(4) {
+  --nth-child: 4;
+}
+:nth-child(5) {
+  --nth-child: 5;
+}
+:nth-child(6) {
+  --nth-child: 6;
+}
+:nth-child(7) {
+  --nth-child: 7;
+}
+:nth-child(8) {
+  --nth-child: 8;
+}
+:nth-child(9) {
+  --nth-child: 9;
+}
+:nth-child(10) {
+  --nth-child: 10;
+}
+:nth-child(11) {
+  --nth-child: 11;
+}
+:nth-child(12) {
+  --nth-child: 12;
+}
+
+.hour {
+  left: 45%;
+  top: 45%;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 10%;
+  /* background-color: black; */
+  color: black;
+  font-weight: bold;
+  transform: rotateZ(calc((var(--nth-child) + 6) * calc(360 / 12) * 1deg))
+    translateY(400%)
+    rotateZ(calc((var(--nth-child) + 6) * calc(360 / 12) * -1deg));
+}
