@@ -21,7 +21,7 @@ function App() {
         prev.seconds !== sec
           ? {
               years: new Date().getFullYear(),
-              months: new Date().getMonth(),
+              months: new Date().getMonth() + 1,
               dates: new Date().getDate(),
               hours: new Date().getHours(),
               mins: new Date().getMinutes(),
