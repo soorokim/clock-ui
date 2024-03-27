@@ -4,6 +4,9 @@ import { EEClock } from "./EEClock";
 
 function App() {
   const [time, setTime] = useState({
+    years: 0,
+    months: 0,
+    dates: 0,
     hours: 0,
     mins: 0,
     seconds: 0,
@@ -12,12 +15,19 @@ function App() {
 
   useEffect(() => {
     const cb = () => {
-      const hour = new Date().getHours();
-      const min = new Date().getMinutes();
       const sec = new Date().getSeconds();
 
       setTime((prev) =>
-        prev.seconds !== sec ? { hours: hour, mins: min, seconds: sec } : prev
+        prev.seconds !== sec
+          ? {
+              years: new Date().getFullYear(),
+              months: new Date().getMonth(),
+              dates: new Date().getDate(),
+              hours: new Date().getHours(),
+              mins: new Date().getMinutes(),
+              seconds: sec,
+            }
+          : prev
       );
       rAF.current = requestAnimationFrame(cb);
     };
@@ -29,7 +39,11 @@ function App() {
     };
   }, []);
 
-  return <EEClock hours={time.hours} mins={time.mins} seconds={time.seconds} />;
+  return (
+    <>
+      <EEClock time={time} />
+    </>
+  );
 }
 
 export default App;
